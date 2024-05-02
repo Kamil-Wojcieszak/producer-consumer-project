@@ -5,6 +5,11 @@
 #pragma once
 
 class Baker {
+public:
+    Baker();
 
     void bake();
+
+    virtual ~Baker();
+
 };

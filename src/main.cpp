@@ -1,14 +1,14 @@
 #include "effolkronium/random.hpp"
-#include "person_manager/PersonManager.h"
+#include "baker_manager//BakerManager.h"
 
 using Random = effolkronium::random_static;
 
 int main() {
-    PersonManager pm;
-    pm.addPerson(Random::get(0,10), Random::get(0,3));
-    pm.addPerson(Random::get(0,10), Random::get(0,3));
-    pm.addPerson(Random::get(0,10), Random::get(0,3));
+    BakerManager bakerManager;
+    bakerManager.addBaker();
+    bakerManager.addBaker();
+    bakerManager.addBaker();
 
-    pm.startThreads();
-    pm.joinThreads();
+    bakerManager.startThreads();
+    bakerManager.joinThreads();
 }
