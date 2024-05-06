@@ -2,26 +2,40 @@
 // Created by kamil on 02.05.24.
 //
 #include <thread>
+#include <fstream>
 #include "iostream"
 #include "Baker.h"
 #include "effolkronium/random.hpp"
+#include<string>
 
 using Random = effolkronium::random_static;
-void Baker::bake() {
 
-    for (int i = 1; i <= Random::get(5,10); ++i) {
-        std::cout << "Baker is baking bread " << i << std::endl;
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+[[noreturn]] void Baker::bake() {
+    while (true) {
+        for (int i = 1; i <= speed; ++i) {
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        }
+        std::cout << "Baking finished by " + name << std::endl;
     }
-    std::cout << "Baking finished." << std::endl;
-
 
 }
 
 Baker::Baker() {
-
+    speed = Random::get(5, 10);
+    name = getRandomName();
 }
 
-Baker::~Baker() {
+Baker::~Baker() = default;
 
+std::string Baker::getRandomName() {
+    std::ifstream in("../resources/names.txt");
+
+    std::string s;
+
+    int n = Random::get(0, 4944);
+    for (int i = 0; i < n; ++i)
+        std::getline(in, s);
+
+    std::getline(in, s);
+    return s;
 }

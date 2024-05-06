@@ -14,8 +14,7 @@ void BakerManager::addBaker() {
 }
 
 void BakerManager::startThreads() {
-
-    for (Baker baker: bakers) {
+    for (Baker &baker: bakers) {
         threads.emplace_back(&Baker::bake, &baker);
     }
 }
@@ -24,4 +23,8 @@ void BakerManager::joinThreads() {
     for (auto &thread: threads) {
         thread.join();
     }
+}
+
+void BakerManager::bake() {
+
 }

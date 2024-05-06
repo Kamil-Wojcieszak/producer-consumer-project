@@ -4,12 +4,19 @@
 
 #pragma once
 
+#include<string>
+
 class Baker {
 public:
     Baker();
 
-    void bake();
+    [[noreturn]] void bake();
 
     virtual ~Baker();
 
+private:
+    int speed;
+    std::string name;
+
+    static std::string getRandomName();
 };

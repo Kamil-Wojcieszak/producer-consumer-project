@@ -19,6 +19,8 @@ public:
     void startThreads();
 
     void joinThreads();
+
+    void bake();
 };
 
 

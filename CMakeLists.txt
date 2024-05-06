@@ -12,4 +12,7 @@ add_executable(Threading src/main.cpp
         src/baker_manager/BakerManager.cpp
         src/baker_manager/BakerManager.h
         src/baker/Baker.cpp
-        src/baker/Baker.h)
+        src/baker/Baker.h
+
+
+        src/bread/Bread.cpp)
